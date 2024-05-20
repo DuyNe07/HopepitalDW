@@ -1,4 +1,4 @@
-USE HopepitalDW
+USE Hopepital_DW
 ;
 
 /* Drop table dbo.DimTime */
@@ -87,7 +87,7 @@ CREATE TABLE dbo.DimItem (
    [Item_key]  int IDENTITY  NOT NULL
 ,  [Item_ID]  nvarchar(10)   NOT NULL
 ,  [Item_name]  nvarchar(255)   NULL
-,  [Item_price]  nvarchar(255)   NULL
+,  [Item_price]  float   NULL
 ,  [Item_type]  nvarchar(255)   NULL
 ,  [RowIsCurrent]  nchar(1)   NOT NULL
 ,  [RowStartDate]  datetime   NOT NULL
@@ -104,16 +104,16 @@ DROP TABLE dbo.FactBill
 
 /* Create table dbo.FactBill */
 CREATE TABLE dbo.FactBill (
-   [Bill_key]  int IDENTITY NOT NULL
+   [Bill_key]  int  NOT NULL
 ,  [Bill_ID]  int   NULL
 ,  [Item_code]  nchar(20)   NULL
-,  [Quantity]  decimal   NULL
-,  [List_price]  decimal   NULL
-,  [Vat_amount]  decimal   NULL
-,  [Waiver_amount]  decimal   NULL
-,  [Surcharge]  decimal   NULL
-,  [Net_sale]  decimal   NULL
-,  [Gross_sale]  decimal   NULL
+,  [Quantity]  float   NULL
+,  [List_price]  float   NULL
+,  [Vat_amount]  float   NULL
+,  [Waiver_amount]  float   NULL
+,  [Surcharge]  float   NULL
+,  [Net_sale]  float   NULL
+,  [Gross_sale]  float   NULL
 ,  [Time_key]  int   NULL
 ,  [Patient_key]  int   NULL
 ,  [Doctor_key]  int   NULL
@@ -122,6 +122,8 @@ CREATE TABLE dbo.FactBill (
 ( [Bill_key] )
 ) ON [PRIMARY]
 ;
+
+
 ALTER TABLE dbo.DimDoctor ADD CONSTRAINT
    FK_dbo_DimDoctor_Department_key FOREIGN KEY
    (

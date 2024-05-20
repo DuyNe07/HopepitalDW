@@ -1,0 +1,25 @@
+TRUNCATE TABLE Bills;
+TRUNCATE TABLE Departments;
+TRUNCATE TABLE Doctors;
+TRUNCATE TABLE Items;
+TRUNCATE TABLE Patients;
+TRUNCATE TABLE Transactions;
+
+CREATE TABLE [Department] (
+    [DEPARTMENT] nvarchar(255),
+    [DEPARTMENT_ID] int
+)
+
+CREATE TABLE [Bills](
+	[BILL_ID] int
+      ,[BILL_NO] nvarchar(255)
+      ,[BILL_DATE] datetime
+      ,[BILL_TYPE] nvarchar(255)
+      ,[BILL_LOCATION] nvarchar(255)
+      ,[PERIOD] nvarchar(255) 
+      ,[NAME_UPPER] nvarchar(255)
+      ,[STATUS] float
+      ,[REASON] nvarchar(255)
+      ,[USER_UPDATE] nvarchar(255)
+      ,[LOCATION] nvarchar(255)
+)

@@ -1,4 +1,4 @@
-﻿/****** Object:  Database HopepitalDW    Script Date: 09/05/2024 2:29:28 CH ******/
+﻿/****** Object:  Database HopepitalDW    Script Date: 20/05/2024 1:59:01 CH ******/
 /*
 Kimball Group, The Microsoft Data Warehouse Toolkit
 Generate a database from the datamodel worksheet, version: 4
@@ -21,7 +21,7 @@ ALTER DATABASE HopepitalDW
 SET RECOVERY SIMPLE
 GO
 */
-USE HopepitalDW
+USE Hopepital_DW
 ;
 IF EXISTS (SELECT Name from sys.extended_properties where Name = 'Description')
     EXEC sys.sp_dropextendedproperty @name = 'Description'
@@ -354,7 +354,7 @@ CREATE TABLE dbo.DimItem (
    [Item_key]  int IDENTITY  NOT NULL
 ,  [Item_ID]  nvarchar(10)   NOT NULL
 ,  [Item_name]  nvarchar(255)   NULL
-,  [Item_price]  nvarchar(255)   NULL
+,  [Item_price]  float   NULL
 ,  [Item_type]  nvarchar(255)   NULL
 ,  [RowIsCurrent]  nchar(1)   NOT NULL
 ,  [RowStartDate]  datetime   NOT NULL
@@ -372,7 +372,7 @@ exec sys.sp_addextendedproperty @name=N'Display Name', @value=N'DimItem', @level
 SET IDENTITY_INSERT dbo.DimItem ON
 ;
 INSERT INTO dbo.DimItem (Item_key, Item_ID, Item_name, Item_price, Item_type, RowIsCurrent, RowStartDate, RowEndDate)
-VALUES (-1, '-1', '', '', '', 'Y', '', '')
+VALUES (-1, '-1', '', NULL, '', 'Y', '', '')
 ;
 SET IDENTITY_INSERT dbo.DimItem OFF
 ;
@@ -412,16 +412,14 @@ exec sys.sp_addextendedproperty @name=N'ETL Rules', @value=N'Standard SCD-2', @l
 exec sys.sp_addextendedproperty @name=N'ETL Rules', @value=N'Standard SCD-2', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'RowEndDate'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Derived', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_key'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Excel', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_name'; 
-exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Excel', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_price'; 
+exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Derived', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_price'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Excel', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_type'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Derived', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'RowIsCurrent'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Derived', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'RowStartDate'; 
 exec sys.sp_addextendedproperty @name=N'Source System', @value=N'Derived', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'RowEndDate'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'ITEM', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_name'; 
-exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'PRICE', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_price'; 
 exec sys.sp_addextendedproperty @name=N'Source Field Name', @value=N'ITEM_TYPE', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_type'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nvarchar(255)', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_name'; 
-exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'float', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_price'; 
 exec sys.sp_addextendedproperty @name=N'Source Datatype', @value=N'nvarchar(255)', @level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'DimItem', @level2type=N'COLUMN', @level2name=N'Item_type'; 
 ;
 
@@ -439,13 +437,13 @@ CREATE TABLE dbo.FactBill (
    [Bill_key]  int  DEFAULT ETL Process NOT NULL
 ,  [Bill_ID]  int   NULL
 ,  [Item_code]  nchar(20)   NULL
-,  [Quantity]  decimal   NULL
-,  [List_price]  decimal   NULL
-,  [Vat_amount]  decimal   NULL
-,  [Waiver_amount]  decimal   NULL
-,  [Surcharge]  decimal   NULL
-,  [Net_sale]  decimal   NULL
-,  [Gross_sale]  decimal   NULL
+,  [Quantity]  float   NULL
+,  [List_price]  float   NULL
+,  [Vat_amount]  float   NULL
+,  [Waiver_amount]  float   NULL
+,  [Surcharge]  float   NULL
+,  [Net_sale]  float   NULL
+,  [Gross_sale]  float   NULL
 ,  [Time_key]  int   NULL
 ,  [Patient_key]  int   NULL
 ,  [Doctor_key]  int   NULL

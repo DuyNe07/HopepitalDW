@@ -5,25 +5,7 @@ TRUNCATE TABLE Items;
 TRUNCATE TABLE Patients;
 TRUNCATE TABLE Transactions;
 
-CREATE TABLE [Department] (
-    [DEPARTMENT] nvarchar(255),
-    [DEPARTMENT_ID] int
-)
-
-CREATE TABLE [Bills](
-	[BILL_ID] int
-      ,[BILL_NO] nvarchar(255)
-      ,[BILL_DATE] datetime
-      ,[BILL_TYPE] nvarchar(255)
-      ,[BILL_LOCATION] nvarchar(255)
-      ,[PERIOD] nvarchar(255) 
-      ,[NAME_UPPER] nvarchar(255)
-      ,[STATUS] float
-      ,[REASON] nvarchar(255)
-      ,[USER_UPDATE] nvarchar(255)
-      ,[LOCATION] nvarchar(255)
-)
-
+=====================================
 
 IF OBJECT_ID('Bills', 'U') IS NOT NULL
 BEGIN
@@ -43,5 +25,94 @@ BEGIN
         REASON NVARCHAR(255),
         USER_UPDATE NVARCHAR(255),
         LOCATION NVARCHAR(255)
+    );
+END
+
+=========================================
+
+IF OBJECT_ID('Transactions', 'U') IS NOT NULL
+BEGIN
+    TRUNCATE TABLE Transactions;
+END
+ELSE
+BEGIN
+    CREATE TABLE Transactions (
+	TRANSACTION_ID INT,
+        TRANSACTION_DATE DATETIME,
+        TRANSACTION_TIME DATETIME
+    );
+END
+
+=========================================
+
+IF OBJECT_ID('Departments', 'U') IS NOT NULL
+BEGIN
+    TRUNCATE TABLE Departments;
+END
+ELSE
+BEGIN
+    CREATE TABLE [Departments] (
+    	[DEPARTMENT] nvarchar(255),
+    	[DEPARTMENT_ID] int
+    );
+END
+
+=========================================
+
+IF OBJECT_ID('Doctors', 'U') IS NOT NULL
+BEGIN
+    TRUNCATE TABLE Doctors;
+END
+ELSE
+BEGIN
+    CREATE TABLE [Doctors] (
+    	[DOCTOR_ID] INT,
+    	[DOCTOR] NVARCHAR(255),
+	[LOCATION_CREATE] NVARCHAR(255),
+	[REG_TIME] DATETIME
+    );
+END
+
+=========================================
+
+IF OBJECT_ID('Items', 'U') IS NOT NULL
+BEGIN
+    TRUNCATE TABLE Items;
+END
+ELSE
+BEGIN
+    CREATE TABLE [Items] (
+    	[ITEM] NVARCHAR(255),
+    	[ITEM_CODE] NVARCHAR(255),
+	[QUANTITY] FLOAT,
+	[LIST_PRICE] FLOAT,
+	[VAT_AMOUNT] FLOAT,
+	[VAT_RATE] FLOAT,
+	[DISCOUNT] FLOAT,
+	[WAIVER_AMOUNT] FLOAT,
+	[SURCHARGE] FLOAT,
+	[NET_SALE] FLOAT,
+	[GROSS_SALE] FLOAT,
+	[ITEM_TYPE] NVARCHAR(255),
+    );
+END
+
+=========================================
+
+IF OBJECT_ID('Pantients', 'U') IS NOT NULL
+BEGIN
+    TRUNCATE TABLE Pantients;
+END
+ELSE
+BEGIN
+    CREATE TABLE [Pantients] (
+    	[PATIENT_ID] INT,
+    	[NAME_UPPER] NVARCHAR(255),
+	[DOB] DATETIME,
+	[AGE] FLOAT,
+	[SEX] NVARCHAR(255),
+	[ADDRESS] NVARCHAR(255),
+	[PROVINCE] NVARCHAR(255),
+	[PATIENT_CREATION_DATE] DATETIME
     );
 END

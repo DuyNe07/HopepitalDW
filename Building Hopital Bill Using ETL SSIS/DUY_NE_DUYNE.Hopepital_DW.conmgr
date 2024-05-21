@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DUY_NE_DUYNE.Hopepital_DW"
+  DTS:DTSID="{90FC9234-032F-4FAA-8A6D-E8614E4EAE71}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DUY_NE\DUYNE;Initial Catalog=Hopepital_DW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-HopepitalDW-{90FC9234-032F-4FAA-8A6D-E8614E4EAE71}DUY_NE\DUYNE.Hopepital_DW;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

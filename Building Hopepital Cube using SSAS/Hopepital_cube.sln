@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Hopepital_cube", "Hopepital_cube.dwproj", "{23539CC6-3E1E-4722-8977-EE953B6E92FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23539CC6-3E1E-4722-8977-EE953B6E92FE}.Development|Default.ActiveCfg = Development
+		{23539CC6-3E1E-4722-8977-EE953B6E92FE}.Development|Default.Build.0 = Development
+		{23539CC6-3E1E-4722-8977-EE953B6E92FE}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7FC4628-25A3-4523-930E-7C960FD77022}
+	EndGlobalSection
+EndGlobal

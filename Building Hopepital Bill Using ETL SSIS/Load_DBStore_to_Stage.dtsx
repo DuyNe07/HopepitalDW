@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Load_DBStore_to_Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="141"
-  DTS:VersionGUID="{700A65C4-1FB5-4CE2-A919-C4511618DF26}">
+  DTS:VersionBuild="142"
+  DTS:VersionGUID="{F9C111AE-B718-4A05-AE24-1DD35F4D62E0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -14300,11 +14300,11 @@
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\DBStage FactBill\Sort"
-          TopLeft="335.99999499321,192.999997124076" />
+          TopLeft="332.428566414179,157.823526566674" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\DBStage FactBill\Derived Column"
-          TopLeft="343.999994874001,311.999995350838" />
+          TopLeft="339.714280579164,248.529407171178" />
         <NodeLayout
           Size="148.8,41.6"
           Id="Package\DBStage FactBill\SRC - DBStore"
@@ -14312,21 +14312,21 @@
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\DBStage FactBill\OLE DB Destination"
-          TopLeft="332.999995037913,439.999993443489" />
+          TopLeft="331.5714236063,351.294111168302" />
         <EdgeLayout
           Id="Package\DBStage FactBill.Paths[Sort Output]"
-          TopLeft="419.999994933605,234.599997124076">
+          TopLeft="416.071423496671,199.423526566674">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77.3999982267618"
+              EndConnector="0,49.1058806045041"
               Start="0,0"
-              End="0,69.8999982267618">
+              End="0,41.6058806045041">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,69.8999982267618" />
+                    End="0,41.6058806045041" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14337,18 +14337,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DBStage FactBill.Paths[OLE DB Source Output]"
-          TopLeft="420.999994903803,100.599999120832">
+          TopLeft="419.214280614287,100.599999120832">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,92.3999980032444"
+              EndConnector="0,57.2235274458427"
               Start="0,0"
-              End="0,84.8999980032444">
+              End="0,49.7235274458427">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,84.8999980032444" />
+                    End="0,49.7235274458427" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14359,18 +14359,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DBStage FactBill.Paths[Derived Column Output]"
-          TopLeft="419.499994955957,353.599995350838">
+          TopLeft="416.642852092732,290.129407171178">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,86.399998092651"
+              EndConnector="0,61.1647039971237"
               Start="0,0"
-              End="0,78.899998092651">
+              End="0,53.6647039971237">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,78.899998092651" />
+                    End="0,53.6647039971237" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
